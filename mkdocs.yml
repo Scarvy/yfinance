@@ -1,19 +1,73 @@
-# site_name: My Docs
+site_name: yfinance
+site_description: Download market data from Yahoo! Finance's API
 
-# # mkdocs.yml
-# theme:
-#   name: "material"
+theme:
+  name: material
+  palette:
 
-# plugins:
-# - search
-# - mkdocstrings
+  # Palette toggle for light mode
+  - scheme: default
+    primary: deep purple
+    accent: red
+    toggle:
+      icon: material/weather-night 
+      name: Switch to dark mode
 
-# nav:
-#   - Introduction: 'index.md'
-#   - Installation: 'installation.md'
-#   - Quick Start: 'quickstart.md'
-#   # - Ticker: 'Ticker.md'
-#   - TickerBase: 'TickerBase.md'
-#   # - Tickers: 'Tickers.md'
-#   - utils: 'utils.md'
-#   - multi: 'multi.md'
+  # Palette toggle for dark mode
+  - scheme: slate
+    primary: deep purple
+    accent: red
+    toggle:
+      icon: material/weather-sunny
+      name: Switch to light mode
+
+markdown_extensions:
+- pymdownx.highlight:
+    anchor_linenums: true
+    line_spans: __span
+    pygments_lang_class: true
+- pymdownx.inlinehilite
+- pymdownx.snippets
+- pymdownx.superfences
+- admonition
+- pymdownx.details
+- pymdownx.superfences
+
+nav:
+- Get Started:
+  - Welcome to yfinance: index.md
+  - Installation: install.md
+  - Contributing: contribution.md
+  - Changelog: changelog.md
+  - Legal Stuff: legal.md
+- Usage:
+  - Single Ticker: usage/ticker.md
+  - Multiple Tickers: usage/tickers.md
+  - Download Price History: usage/download.md
+  - Download vs. History: usage/download_vs_history.md
+  - Smart Scraping: usage/smart_scraping.md
+  - Using `pandas_datareader`: usage/pandas_datareader.md
+  - Logging: usage/logging.md
+  - Proxies: usage/proxy.md
+- API Documentation:
+  - Ticker: api/ticker.md
+  - Tickers: api/tickers.md
+  - TickerData: api/data.md
+  - Download: api/download.md
+  - TickerBase: api/tickerbase.md
+  - Utilities: api/utils.md
+  - Exceptions: api/exceptions.md
+  - Scrapers:
+    - Analysis: api/scrapers/analysis.md
+    - Fundamentals: api/scrapers/fundamentals.md
+    - Holders: api/scrapers/holders.md
+    - Quote: api/scrapers/quote.md
+
+features:
+- navigation.tabs
+- navigation.tabs.sticky
+- navigation.path
+
+plugins:
+- search
+- mkdocstrings

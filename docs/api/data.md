@@ -1,0 +1,3 @@
+# TickerData
+
+::: yfinance.data.TickerData
