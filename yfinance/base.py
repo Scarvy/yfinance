@@ -34,15 +34,13 @@ import numpy as np
 import pandas as pd
 import requests
 
-from . import shared
-from . import utils
+from . import shared, utils
+from .const import _BASE_URL_, _ROOT_URL_
 from .data import TickerData
 from .scrapers.analysis import Analysis
 from .scrapers.fundamentals import Fundamentals
 from .scrapers.holders import Holders
-from .scrapers.quote import Quote, FastInfo
-
-from .const import _BASE_URL_, _ROOT_URL_
+from .scrapers.quote import FastInfo, Quote
 
 
 class TickerBase:
@@ -53,7 +51,7 @@ class TickerBase:
         session: A client session object.
     """
 
-    def __init__(self, ticker: str, session: Optional[requests.Sessio] = None):
+    def __init__(self, ticker: str, session: Optional[requests.Session] = None):
         self.ticker = ticker.upper()
         self.session = session
         self._history = None
